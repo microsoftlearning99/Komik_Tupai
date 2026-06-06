@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tupai Kecil dan Daun Kering - Komik Interaktif</title>
+  <meta name="description" content="Komik edukasi interaktif 'Tupai Kecil dan Daun Kering' dengan fitur pembaca per panel, suara narasi (voiceover), efek suara, dan editor koordinat panel visual.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <script type="module" crossorigin src="/assets/index-DMUhnYEa.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DFot9G1H.css">
+</head>
+<body class="theme-dark">
+  <div id="ambient-container" class="ambient-glow"></div>
+  
+  <!-- Main App Container -->
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+        <div class="logo-text">
+          <h1>Tupai Kecil & Daun Kering</h1>
+          <p class="subtitle">Kelompok C3 - Komik Interaktif</p>
+        </div>
+      </div>
+      
+      <div class="header-controls">
+        <!-- Mode Switcher Toggle -->
+        <div class="toggle-mode-container">
+          <button id="mode-reader-btn" class="toggle-btn active" aria-label="Mode Membaca">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span>Baca Komik</span>
+          </button>
+          <button id="mode-editor-btn" class="toggle-btn" aria-label="Mode Editor Panel">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+              <line x1="15" y1="3" x2="15" y2="21"></line>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="3" y1="15" x2="21" y2="15"></line>
+            </svg>
+            <span>Editor Panel</span>
+          </button>
+        </div>
+        
+        <button id="settings-toggle-btn" class="icon-btn-round" aria-label="Pengaturan">
+          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="app-content">
+      
+      <!-- READER VIEW -->
+      <section id="reader-view" class="view-section active">
+        <div class="reader-container">
+          
+          <!-- Prev Button Left -->
+          <button id="prev-btn" class="nav-arrow-btn prev" aria-label="Halaman Sebelumnya">
+            <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          
+          <!-- Comic Panel Viewport Outer -->
+          <div class="viewport-outer">
+            <div id="scroll-reader-container" class="scroll-reader-container scroll-horizontal">
+              <!-- Panel-panel komik akan dirender dinamis di sini -->
+            </div>
+            
+            <!-- Scroll Indicator Help Overlay -->
+            <div id="scroll-help-overlay" class="scroll-help-overlay">
+              <div class="help-content">
+                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" class="animate-swipe">
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Geser atau Gulir untuk membaca</span>
+              </div>
+            </div>
+
+            <!-- Floating Dialog/Text Box -->
+            <div id="narrative-overlay" class="narrative-overlay">
+              <div class="narrative-bubble">
+                <p id="narrative-text">Memuat cerita...</p>
+                <button id="speech-speak-btn" class="action-btn-circle" aria-label="Dengarkan Suara Narasi">
+                  <svg class="icon-speak" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Next Button Right -->
+          <button id="next-btn" class="nav-arrow-btn next" aria-label="Halaman Selanjutnya">
+            <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          
+        </div>
+        
+        <!-- Reader Bottom Toolbar -->
+        <footer class="reader-toolbar">
+          <div class="toolbar-left">
+            <button id="toolbar-sheet-view-btn" class="toolbar-action-btn" title="Lihat Semua Halaman">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+              <span>Semua Halaman</span>
+            </button>
+            <button id="layout-toggle-btn" class="toolbar-action-btn" title="Ubah Arah Gulir (Horizontal/Vertikal)">
+              <svg id="layout-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M3 3h18v18H3z M9 3v18 M15 3v18"></path>
+              </svg>
+              <span id="layout-text">Arah: Horizontal</span>
+            </button>
+          </div>
+
+          <div class="toolbar-center">
+            <!-- Navigation Dot Progress -->
+            <div id="progress-dots" class="progress-dots-container">
+              <!-- Dots generated in JS -->
+            </div>
+          </div>
+
+          <div class="toolbar-right">
+            <!-- Autoplay Controls -->
+            <div class="autoplay-controls">
+              <button id="autoplay-btn" class="toolbar-action-btn" title="Putar Otomatis">
+                <svg id="autoplay-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" class="icon-play">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span id="autoplay-text">Putar Otomatis</span>
+              </button>
+            </div>
+            
+            <!-- Voiceover toggle -->
+            <button id="voiceover-toggle-btn" class="toolbar-action-btn active" title="Aktifkan Narasi Suara">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+              <span>Suara</span>
+            </button>
+            
+            <!-- Sound FX toggle -->
+            <button id="soundfx-toggle-btn" class="toolbar-action-btn active" title="Efek Suara Lembar Buku">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+              <span>SFX</span>
+            </button>
+          </div>
+        </footer>
+      </section>
+
+      
+      <!-- EDITOR VIEW -->
+      <section id="editor-view" class="view-section">
+        <div class="editor-grid">
+          
+          <!-- Workspace: Canvas area -->
+          <div class="editor-workspace">
+            <div class="editor-card header-card">
+              <div class="card-title-group">
+                <h3>Workspace Visual Panel</h3>
+                <p>Klik & seret pada gambar untuk membuat panel baru, atau sesuaikan kotak pembatas yang ada.</p>
+              </div>
+              <div class="workspace-buttons">
+                <button id="editor-add-btn" class="btn btn-primary btn-sm">
+                  <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Tambah Panel
+                </button>
+              </div>
+            </div>
+            
+            <div class="canvas-scroll-container">
+              <div id="canvas-container" class="canvas-wrapper">
+                <img id="editor-comic-img" src="comic.png" alt="Peta Halaman Komik untuk Edit" class="editor-image-source">
+                <div id="crop-box-overlay" class="crop-box-overlay">
+                  <!-- Visual crop boxes will be generated dynamically here -->
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sidebar: Panel details & parameters -->
+          <aside class="editor-sidebar-container">
+            <div class="editor-card sidebar-card">
+              <h3>Daftar Urutan Panel</h3>
+              <div id="editor-panel-list" class="editor-panel-list">
+                <!-- Panel items generated in JS -->
+              </div>
+            </div>
+            
+            <div class="editor-card sidebar-card active-panel-editor" id="panel-editor-details">
+              <h3>Detail Panel Terpilih</h3>
+              
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="p-coord-x">X (px)</label>
+                  <input type="number" id="p-coord-x" min="0">
+                </div>
+                <div class="form-group">
+                  <label for="p-coord-y">Y (px)</label>
+                  <input type="number" id="p-coord-y" min="0">
+                </div>
+                <div class="form-group">
+                  <label for="p-coord-w">Lebar (px)</label>
+                  <input type="number" id="p-coord-w" min="1">
+                </div>
+                <div class="form-group">
+                  <label for="p-coord-h">Tinggi (px)</label>
+                  <input type="number" id="p-coord-h" min="1">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="p-text">Dialog & Narasi Suara (Bahasa Indonesia)</label>
+                <textarea id="p-text" rows="4" placeholder="Tulis suara narasi atau dialog panel di sini..."></textarea>
+              </div>
+              
+              <div class="editor-actions">
+                <button id="editor-delete-btn" class="btn btn-danger btn-sm">Hapus Panel</button>
+                <button id="editor-save-panel-btn" class="btn btn-secondary btn-sm">Simpan Perubahan</button>
+              </div>
+            </div>
+
+            <!-- Global Editor Actions -->
+            <div class="editor-card sidebar-card">
+              <h3>Opsi Konfigurasi Global</h3>
+              <div class="global-actions-buttons">
+                <button id="editor-reset-btn" class="btn btn-outline btn-block btn-sm">
+                  Reset Koordinat Bawaan
+                </button>
+                <div class="grid-2-col">
+                  <button id="editor-export-btn" class="btn btn-secondary btn-sm">
+                    Ekspor JSON
+                  </button>
+                  <button id="editor-import-btn" class="btn btn-secondary btn-sm">
+                    Impor JSON
+                  </button>
+                </div>
+                <!-- Hidden file input for import -->
+                <input type="file" id="import-file-input" style="display: none;" accept=".json">
+              </div>
+            </div>
+          </aside>
+          
+        </div>
+      </section>
+      
+    </main>
+    
+    <!-- SETTINGS DRAWER / MODAL -->
+    <div id="settings-drawer" class="drawer-overlay">
+      <div class="drawer-content">
+        <div class="drawer-header">
+          <h3>Pengaturan Pembaca</h3>
+          <button id="settings-close-btn" class="icon-btn-round" aria-label="Tutup Pengaturan">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="drawer-body">
+          <!-- Theme Settings -->
+          <div class="drawer-section">
+            <h4>Tema Visual</h4>
+            <div class="theme-picker">
+              <button class="theme-btn theme-dark-btn active" data-theme="theme-dark">Gelap</button>
+              <button class="theme-btn theme-light-btn" data-theme="theme-light">Terang</button>
+              <button class="theme-btn theme-sepia-btn" data-theme="theme-sepia">Sepia</button>
+            </div>
+          </div>
+          
+          <!-- Transition Settings -->
+          <div class="drawer-section">
+            <label for="select-transition">Transisi Panel</label>
+            <select id="select-transition" class="form-control">
+              <option value="slide-horizontal">Geser Horisontal (Slide)</option>
+              <option value="slide-vertical">Geser Vertikal</option>
+              <option value="fade-cross">Memudar (Fade)</option>
+              <option value="pop-zoom">Zoom & Pop</option>
+              <option value="no-animation">Tanpa Efek</option>
+            </select>
+          </div>
+          
+          <!-- Autoplay Speed -->
+          <div class="drawer-section">
+            <div class="slider-header">
+              <label for="autoplay-speed-slider">Durasi Putar Otomatis</label>
+              <span id="autoplay-speed-value">5s</span>
+            </div>
+            <input type="range" id="autoplay-speed-slider" min="2" max="15" value="5" class="slider-control">
+          </div>
+          
+          <!-- Voiceover Engine Configurations -->
+          <div class="drawer-section">
+            <h4>Konfigurasi Suara Narasi</h4>
+            
+            <div class="form-group mt-10">
+              <label for="select-voice">Suara Narator (TTS)</label>
+              <select id="select-voice" class="form-control">
+                <option value="default">Suara Sistem Utama</option>
+              </select>
+            </div>
+            
+            <div class="slider-header mt-10">
+              <label for="voice-pitch-slider">Nada Suara (Pitch)</label>
+              <span id="voice-pitch-value">1.0</span>
+            </div>
+            <input type="range" id="voice-pitch-slider" min="0.5" max="2" step="0.1" value="1.0" class="slider-control">
+            
+            <div class="slider-header mt-10">
+              <label for="voice-rate-slider">Kecepatan Suara (Rate)</label>
+              <span id="voice-rate-value">1.0</span>
+            </div>
+            <input type="range" id="voice-rate-slider" min="0.5" max="2" step="0.1" value="1.0" class="slider-control">
+          </div>
+          
+          <div class="drawer-footer">
+            <p>Dibangun untuk kenyamanan membaca komik strip, dengan navigasi penuh menggunakan papan ketik (Tombol Panah & Spasi).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHEET VIEW FULLSCREEN MODAL -->
+    <div id="sheet-view-modal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Lembar Komik Utuh</h3>
+          <button id="sheet-close-btn" class="icon-btn-round" aria-label="Tutup Tampilan">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body-scrollable">
+          <p class="modal-help-text">Klik salah satu panel di bawah untuk langsung menuju halaman tersebut.</p>
+          <div class="sheet-map-container">
+            <img src="comic.png" alt="Komik Lengkap" class="modal-full-sheet-image">
+            <div id="sheet-hotspots-overlay" class="sheet-hotspots-overlay">
+              <!-- Clickable areas mapped to panels generated in JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- JavaScript Application -->
+</body>
+</html>

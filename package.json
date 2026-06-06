@@ -1,0 +1,18 @@
+{
+  "name": "comic-viewer",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://microsoftlearning99.github.io/Komik_Tupai",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build --base=/Komik_Tupai/",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "vite": "^5.2.0"
+  }
+}
