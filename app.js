@@ -8,20 +8,125 @@ const NATIVE_WIDTH = 1024;
 const NATIVE_HEIGHT = 558;
 
 // Default Panel Definitions
+// Default Panel Definitions
 const DEFAULT_PANELS = [
-  { id: 1, name: "Halaman 1: Judul", x: 10, y: 10, w: 327, h: 175, text: "Tupai Kecil dan Daun Kering. Oleh Kelompok C3. Susila Wati Kuseladewi, Eksi Krisna Sandi, Agustina Dwi Purwaningsih, Verena Amabel Naindra Pramudita." },
-  { id: 2, name: "Halaman 2: Sapu Halaman", x: 343, y: 10, w: 154, h: 175, text: "Lalala... aku mau membersihkan halaman hutan!" },
-  { id: 3, name: "Halaman 3: Burung Menyapa", x: 503, y: 10, w: 154, h: 175, text: "Wah, rajin sekali, Tupai! Sapu... sapu... kumpulkan di sini!" },
-  { id: 4, name: "Halaman 4: Ide Membakar", x: 663, y: 10, w: 154, h: 175, text: "Hmmm... supaya cepat bersih, aku bakar saja daun ini!" },
-  { id: 5, name: "Halaman 5: Mulai Membakar", x: 823, y: 10, w: 191, h: 175, text: "Criiiing... fuuush... Api menyala membakar daun kering." },
-  { id: 6, name: "Halaman 6: Api Mulai Tumbuh", x: 10, y: 195, w: 237, h: 175, text: "Tupai terus menyapu daun-daun ke arah api." },
-  { id: 7, name: "Halaman 7: Api Membesar", x: 253, y: 195, w: 244, h: 175, text: "Awas! Apinya membesar! Cough! Gasp! Cough!" },
-  { id: 8, name: "Halaman 8: Siram Air", x: 503, y: 195, w: 249, h: 175, text: "Byur! Byur! Byur! Kelinci menyiram air. Huft... hampir saja pohon terbakar." },
-  { id: 9, name: "Halaman 9: Nasehat Kelinci", x: 758, y: 195, w: 256, h: 175, text: "Membakar daun bisa membuat kebakaran dan udara jadi kotor. Maaf teman-teman... aku tidak tahu kalau api bisa berbahaya." },
-  { id: 10, name: "Halaman 10: Solusi Kompos", x: 10, y: 380, w: 283, h: 168, text: "Daun kering tidak perlu dibakar. Daun bisa ditimbun menjadi pupuk kompos. Kompos itu makanan untuk tanaman!" },
-  { id: 11, name: "Halaman 11: Membuat Kompos", x: 299, y: 380, w: 249, h: 168, text: "Wah, ternyata mudah! Tupai dan Kelinci mengubur daun kering untuk kompos." },
-  { id: 12, name: "Halaman 12: Hutan Terjaga", x: 554, y: 380, w: 254, h: 168, text: "Sekarang aku tahu cara menjaga hutan! Semua hewan pun hidup bahagia." },
-  { id: 13, name: "Halaman 13: Pesan Moral", x: 814, y: 380, w: 200, h: 168, text: "Pesan Moral: Jangan membakar sampah sembarangan karena dapat menyebabkan kebakaran dan polusi. Daun kering bisa dijadikan pupuk kompos yang bermanfaat untuk tanaman dan lingkungan." }
+  {
+    "id": 1,
+    "name": "Halaman 1: Judul",
+    "x": 14,
+    "y": 16,
+    "w": 324,
+    "h": 171,
+    "text": "Tupai Kecil dan Daun Kering. Oleh Kelompok C3. Susila Wati Kuseladewi, Eksi Krisna Sandi, Agustina Dwi Purwaningsih, Verena Amabel Naindra Pramudita."
+  },
+  {
+    "id": 2,
+    "name": "Halaman 2: Sapu Halaman",
+    "x": 348,
+    "y": 14,
+    "w": 159,
+    "h": 173,
+    "text": "Lalala... aku mau membersihkan halaman hutan!"
+  },
+  {
+    "id": 3,
+    "name": "Halaman 3: Burung Menyapa",
+    "x": 517,
+    "y": 13,
+    "w": 159,
+    "h": 173,
+    "text": "Wah, rajin sekali, Tupai! Sapu... sapu... kumpulkan di sini!"
+  },
+  {
+    "id": 4,
+    "name": "Halaman 4: Ide Membakar",
+    "x": 687,
+    "y": 15,
+    "w": 144,
+    "h": 173,
+    "text": "Hmmm... supaya cepat bersih, aku bakar saja daun ini!"
+  },
+  {
+    "id": 5,
+    "name": "Halaman 5: Mulai Membakar",
+    "x": 843,
+    "y": 19,
+    "w": 166,
+    "h": 168,
+    "text": "Criiiing... fuuush... Api menyala membakar daun kering."
+  },
+  {
+    "id": 6,
+    "name": "Halaman 6: Api Mulai Tumbuh",
+    "x": 13,
+    "y": 199,
+    "w": 236,
+    "h": 167,
+    "text": "Tupai terus menyapu daun-daun ke arah api."
+  },
+  {
+    "id": 7,
+    "name": "Halaman 7: Api Membesar",
+    "x": 260,
+    "y": 201,
+    "w": 246,
+    "h": 167,
+    "text": "Awas! Apinya membesar! Cough! Gasp! Cough!"
+  },
+  {
+    "id": 8,
+    "name": "Halaman 8: Siram Air",
+    "x": 518,
+    "y": 200,
+    "w": 251,
+    "h": 166,
+    "text": "Byur! Byur! Byur! Kelinci menyiram air. Huft... hampir saja pohon terbakar."
+  },
+  {
+    "id": 9,
+    "name": "Halaman 9: Nasehat Kelinci",
+    "x": 781,
+    "y": 198,
+    "w": 231,
+    "h": 170,
+    "text": "Membakar daun bisa membuat kebakaran dan udara jadi kotor. Maaf teman-teman... aku tidak tahu kalau api bisa berbahaya."
+  },
+  {
+    "id": 10,
+    "name": "Halaman 10: Solusi Kompos",
+    "x": 14,
+    "y": 382,
+    "w": 279,
+    "h": 163,
+    "text": "Daun kering tidak perlu dibakar. Daun bisa ditimbun menjadi pupuk kompos. Kompos itu makanan untuk tanaman!"
+  },
+  {
+    "id": 11,
+    "name": "Halaman 11: Membuat Kompos",
+    "x": 306,
+    "y": 380,
+    "w": 251,
+    "h": 166,
+    "text": "Wah, ternyata mudah! Tupai dan Kelinci mengubur daun kering untuk kompos."
+  },
+  {
+    "id": 12,
+    "name": "Halaman 12: Hutan Terjaga",
+    "x": 570,
+    "y": 381,
+    "w": 254,
+    "h": 164,
+    "text": "Sekarang aku tahu cara menjaga hutan! Semua hewan pun hidup bahagia."
+  },
+  {
+    "id": 13,
+    "name": "Halaman 13: Pesan Moral",
+    "x": 838,
+    "y": 383,
+    "w": 170,
+    "h": 163,
+    "text": "Pesan Moral: Jangan membakar sampah sembarangan karena dapat menyebabkan kebakaran dan polusi. Daun kering bisa dijadikan pupuk kompos yang bermanfaat untuk tanaman dan lingkungan."
+  }
 ];
 
 // App State
