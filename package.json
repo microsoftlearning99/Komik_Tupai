@@ -6,7 +6,7 @@
   "homepage": "https://microsoftlearning99.github.io/Komik_Tupai",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build --base=/Komik_Tupai/",
+    "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
