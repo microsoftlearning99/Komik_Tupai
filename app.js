@@ -1,3 +1,4 @@
+import './style.css'; // Sesuaikan jika nama file CSS-mu berbeda (misal: './index.css')
 // ==========================================================================
 // COMIC VIEWER APPLICATION LOGIC
 // ==========================================================================
